@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --primary: #48b54a;
+  --secondary: #4bbb6b;
+  --ternary: #00bcd4;
+  --white: #fff;
+  --dark: #000;
+  --gray: #999;
+}
+
+/* -------------------------------HEADER SECTION------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+
+/* Header Css */
+
+#Header .navbar {
+  box-shadow: 0px 0px 2px 3px var(--gray);
+}
+
+#Header .container {
+  overflow-x: hidden;
+}
+
+#Header .Logo {
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  width: 130px;
+}
+
+#Header .navbar-nav .nav-link {
+  color: var(--dark);
+  font-size: 16px;
+  padding-right: 10px;
+  font-weight: 500;
+  padding-top: 15px;
+}
+
+#Header .navbar-nav .nav-link:hover {
+  color: var(--ternary);
+  transition: all 0.5s ease-in-out;
+}
+
+#Header .navbar-nav .nav-link.active {
+  color: var(--ternary);
+  font-weight: bold;
+}
+
+#Header .navbar-nav .nav-link::after {
+  content: "";
+  display: block;
+  width: 0; /* Initially set width to 0 */
+  height: 2px;
+  background-color: var(--ternary);
+  transition: width 0.5s ease; /* Add transition effect */
+}
+
+#Header .navbar-nav .nav-link.active::after {
+  width: 100%; /* Set width to 100% when link is active */
+}
+
+#Header .navbar-nav .nav-link:hover::after {
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+}
+
+#Header .btn {
+  padding: 15px 30px;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+  color: var(--white);
+  background-color: var(--ternary);
+  box-shadow: 0px 0px 3px 0px rgb(223, 212, 212);
+}
+
+#Header .btn:hover {
+  background-color: var(--secondary);
+  transition: all 0.4s ease;
+}
+
+@media (max-width: 990px) {
+  #Header .navbar-nav .nav-link {
+    padding-left: 50px;
+  }
+
+  #Header .btn {
+    margin-left: 50px;
+  }
+}
+
+/* Header Css */

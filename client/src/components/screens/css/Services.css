@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --primary: #48b54a;
+  --secondary: #4bbb6b;
+  --ternary: #00bcd4;
+  --white: #fff;
+  --dark: #000;
+  --gray: #999;
+}
+
+/* ------------------------------------SERVICES SECTION------------------------------ */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+
+/* SERVICES Section Css */
+#SERVICES {
+  margin-top: 150px;
+}
+
+#SERVICES .title::after {
+  content: " ";
+  display: block;
+  margin: auto;
+  width: 15%;
+  margin-top: 2px;
+  height: 3px;
+  background-color: var(--primary);
+}
+
+#SERVICES .description {
+  text-align: justify;
+  font-size: 15px;
+}
+
+/* SERVICES Section Css */

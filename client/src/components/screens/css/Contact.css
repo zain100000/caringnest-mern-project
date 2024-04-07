@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --primary: #48b54a;
+  --secondary: #4bbb6b;
+  --ternary: #00bcd4;
+  --white: #fff;
+  --dark: #000;
+  --gray: #999;
+}
+
+/* -------------------------------CONTACT SECTION----------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+
+/* CONTACT FORM CSS */
+#CONTACT {
+  margin-bottom: 5px;
+  margin-top: 150px;
+}
+
+#CONTACT .inputField {
+  border: 1px solid var(--primary);
+  width: 100%;
+  padding: 8px 0px;
+}
+
+#CONTACT .btn {
+  padding: 10px 50px;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--white);
+  background-color: var(--ternary);
+  box-shadow: 0px 0px 3px 0px rgb(223, 212, 212);
+  width: 100%;
+}
+
+#CONTACT .btn:hover {
+  background-color: var(--secondary);
+  transition: all 0.3s ease-in-out;
+}
+
+/* CONTACT FORM CSS */

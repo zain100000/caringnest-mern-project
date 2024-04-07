@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --primary: #48b54a;
+  --secondary: #4bbb6b;
+  --ternary: #00bcd4;
+  --white: #fff;
+  --dark: #000;
+  --gray: #999;
+}
+
+/* ---------------------------------HOME SECTION------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+
+/* About Css */
+
+#About .title::after {
+  content: " ";
+  display: block;
+  margin: auto;
+  width: 15%;
+  margin-top: 2px;
+  height: 3px;
+  background-color: var(--primary);
+}
+
+#About .description {
+  text-align: justify;
+  line-height: 30px;
+}
+
+#About .about-img {
+  width: 100%;
+}
+
+#About .btn {
+  padding: 10px 50px;
+  margin: 10px 10px;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--white);
+  background-color: var(--ternary);
+  box-shadow: 0px 0px 3px 0px rgb(223, 212, 212);
+}
+
+#About .btn:hover {
+  background-color: var(--secondary);
+  transition: all 0.3s ease-in-out;
+}
+
+/* About Css */
+
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+
+/* Services Css */
+
+#Services .title::after {
+  content: " ";
+  display: block;
+  margin: auto;
+  width: 15%;
+  margin-top: 2px;
+  height: 3px;
+  background-color: var(--primary);
+}
+
+#Services .gradient-card {
+  border: none;
+  border-radius: 15px;
+  padding: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#Services .gradient-primary {
+  background: linear-gradient(45deg, #4bbb6b, #64b5f6);
+}
+
+@media (max-width: 990px) {
+  #Services .gradient-card {
+    margin-bottom: 20px;
+  }
+}
+/* Services Css */
+
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+
+/* Contact Css */
+
+#Contact .btn {
+  padding: 10px 50px;
+  font-size: 1rem;
+  margin-top: 10px;
+  text-align: center;
+  color: var(--white);
+  background-color: var(--ternary);
+  box-shadow: 0px 0px 3px 0px rgb(223, 212, 212);
+}
+
+#Contact .btn:hover {
+  background-color: var(--secondary);
+  transition: all 0.3s ease-in-out;
+}
+
+#Contact .container {
+  padding: 10px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  box-shadow: 0px 0px 2px 2px var(--gray);
+  background-color: var(--secondary);
+}
+
+/* Contact Css */
