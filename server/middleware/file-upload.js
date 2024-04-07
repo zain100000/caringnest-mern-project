@@ -30,7 +30,7 @@ cloudinary.config({
 const cloudinaryDocsUpload = async (file) => {
   try {
     const result = await cloudinary.uploader.upload(file.path, {
-      folder: `files/additionalDocs`, // Folder name on Cloudinary
+      folder: `additionalDocs/`, // Folder name on Cloudinary
     });
     return result.secure_url; // Return the URL of the uploaded image
   } catch (error) {
