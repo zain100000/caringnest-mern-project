@@ -1,12 +1,14 @@
 const express = require("express");
-const { check, validationResult } = require("express-validator");
+const { check } = require("express-validator");
 const router = express.Router();
 const referralFormController = require("../controller/referral-form-controller");
-const fileUploadMiddleware = require("../middleware/file-upload");
+const cloudinaryUpload = require("../middleware/file-upload");
 
+// Route to create a new Referral Form
 router.post(
   "/",
-  fileUploadMiddleware.additionalDocsUpload,
+  cloudinaryUpload.upload,
+
   [
     check("makingFirstName").not().isEmpty(),
     check("makingLastName").not().isEmpty(),
@@ -15,21 +17,19 @@ router.post(
     check("initials").not().isEmpty(),
     check("terms").not().isEmpty(),
   ],
-  async (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(422).json({ errors: errors.array() });
-    }
-    referralFormController.createReferralForm(req, res, next);
-  }
+  referralFormController.createReferralForm
 );
 
+// Route to get a specific Referral Form by ID
 router.get("/:id", referralFormController.getReferralFormById);
 
-router.get("/", referralFormController.getRefferalForm);
+// Route to get Referral Form
+router.get("/", referralFormController.getReferralForm);
 
-router.get("/:id/sample", referralFormController.getReferralFormAdditionalDocs);
+// Route to get Referral Form docs
+router.get("/:id/docs", referralFormController.getReferralFormDocs);
 
+// Route to delete Referral Form
 router.delete("/:id", referralFormController.deleteReferralForm);
 
 module.exports = router;

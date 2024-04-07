@@ -1,32 +1,45 @@
 const multer = require("multer");
-const { v1: uuidv1 } = require("uuid");
+const { v2: cloudinary } = require("cloudinary");
+const HttpError = require("../model/http-error");
+require("dotenv").config();
 
-const MIME_TYPE_MAP = {
-  "image/png": "png",
-  "image/jpeg": "jpeg",
-  "image/jpg": "jpg",
+// Multer configuration for file upload
+const storage = multer.diskStorage({});
+
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith("image")) {
+    cb(null, true);
+  } else {
+    cb(new HttpError("Only images are allowed", 422), false);
+  }
 };
 
-const additionalDocsUpload = multer({
-  limits: 500000,
-  storage: multer.diskStorage({
-    destination: (req, file, cb) => {
-      cb(null, "files/additionalDocs/");
-    },
-    filename: (req, file, cb) => {
-      const ext = MIME_TYPE_MAP[file.mimetype];
-      console.log("MIME Type:", file.mimetype);
-      cb(null, uuidv1() + "." + ext);
-    },
-  }),
-  fileFilter: (req, file, cb) => {
-    const isValid = !!MIME_TYPE_MAP[file.mimetype];
-    let error = isValid ? null : new Error("Invalid mime type!");
-    console.log("File MIME Type Validation:", isValid);
-    cb(error, isValid);
-  },
-}).single("additionalDocs"); // Set the field name here
+// Multer upload configuration
+const upload = multer({
+  storage: storage,
+  fileFilter: fileFilter,
+}).single("additionalDocs"); // Using the same field name for both gents and ladies
+
+// Cloudinary configuration
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+const cloudinaryDocsUpload = async (file) => {
+  try {
+    const result = await cloudinary.uploader.upload(file.path, {
+      folder: `files/additionalDocs`, // Folder name on Cloudinary
+    });
+    return result.secure_url; // Return the URL of the uploaded image
+  } catch (error) {
+    console.error("Error uploading docs to Cloudinary:", error);
+    throw new HttpError("Error uploading docs to Cloudinary", 500);
+  }
+};
 
 module.exports = {
-  additionalDocsUpload,
+  upload,
+  cloudinaryDocsUpload,
 };

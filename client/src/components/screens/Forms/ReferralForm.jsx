@@ -80,7 +80,8 @@ const ReferralForm = () => {
       referralFormData.append("initials", initials);
       referralFormData.append("terms", terms);
 
-      const referralFormApiUrl = "https://caring-nest-deployment-server.onrender.com/api/referral";
+      const referralFormApiUrl =
+        "https://caring-nest-deployment-server.onrender.com/api/referral";
       const response = await axios.post(referralFormApiUrl, referralFormData, {
         headers: {
           "Content-Type": "multipart/form-data",
