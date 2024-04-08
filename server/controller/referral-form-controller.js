@@ -169,7 +169,7 @@ exports.deleteReferralForm = async (req, res, next) => {
         // Extract the public ID from the Cloudinary URL
         const publicId = referral.additionalDocs
           .split("/")
-          .slice(-3)
+          .slice(-4)
           .join("/")
           .split(".")[0];
 
