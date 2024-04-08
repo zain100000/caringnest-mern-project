@@ -169,11 +169,7 @@ exports.deleteReferralForm = async (req, res, next) => {
     if (referral.additionalDocs) {
       try {
         // Extract the public ID from the Cloudinary URL
-        const publicId = referral.additionalDocs
-          .split("/")
-          .slice(-2)
-          .join("/")
-          .split(".")[0];
+        const publicId = referral.additionalDocs.split("/upload/")[1];
 
         // Delete the docs file from Cloudinary
         const deletionResult = await cloudinary.uploader.destroy(publicId);
