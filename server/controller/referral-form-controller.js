@@ -117,13 +117,15 @@ exports.getReferralFormById = async (req, res, next) => {
 
     // Include the docs URL in the response
     const referralformWithDocsURL = {
-      ...gentsOrder.toObject(),
-      samples: gentsOrder.samples ? `/api/gents/${orderId}/sample` : null,
+      ...referral.toObject(),
+      additionalDocs: referral.additionalDocs
+        ? `/api/referral/${formId}/additionalDocs`
+        : null,
     };
 
-    res.status(200).json({ GentsOrders: referralformWithDocsURL });
+    res.status(200).json({ Referral: referralformWithDocsURL });
   } catch {
-    const error = new HttpError("Order Not Found By Provided Id!.", 500);
+    const error = new HttpError("Docs Not Found By Provided Id!.", 500);
     return next(error);
   }
 };
