@@ -188,7 +188,7 @@ exports.deleteReferralForm = async (req, res, next) => {
     }
 
     // Delete the Referral from MongoDB
-    await Referral.deleteOne({ _id: orderId });
+    await Referral.deleteOne({ _id: formId });
 
     res.status(200).json({ message: "Referral Form Deleted Successfully." });
   } catch (error) {
