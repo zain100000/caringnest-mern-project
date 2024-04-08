@@ -187,13 +187,13 @@ exports.deleteReferralForm = async (req, res, next) => {
       }
     }
 
-    // Delete the GentsOrder from MongoDB
-    await GentsOrder.deleteOne({ _id: orderId });
+    // Delete the Referral from MongoDB
+    await Referral.deleteOne({ _id: orderId });
 
-    res.status(200).json({ message: "Gents Order Deleted Successfully." });
+    res.status(200).json({ message: "Referral Form Deleted Successfully." });
   } catch (error) {
-    console.error("Error deleting Gents Order:", error);
-    const err = new HttpError("Failed To Delete Gents Order!", 500);
+    console.error("Error deleting Referral Form:", error);
+    const err = new HttpError("Failed To Delete Referral Form!", 500);
     return next(err);
   }
 };

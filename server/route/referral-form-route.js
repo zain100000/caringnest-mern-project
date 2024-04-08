@@ -6,7 +6,7 @@ const cloudinaryUpload = require("../middleware/file-upload");
 
 // Route to create a new Referral Form
 router.post(
-  "/",
+  "/createReferralForm",
   cloudinaryUpload.upload,
 
   [
@@ -21,15 +21,21 @@ router.post(
 );
 
 // Route to get a specific Referral Form by ID
-router.get("/:id", referralFormController.getReferralFormById);
+router.get("/getReferralForm/:id", referralFormController.getReferralFormById);
 
 // Route to get Referral Form
-router.get("/", referralFormController.getReferralForm);
+router.get("/getReferralForm", referralFormController.getReferralForm);
 
 // Route to get Referral Form docs
-router.get("/:id/docs", referralFormController.getReferralFormDocs);
+router.get(
+  "/getReferralForm/:id/docs",
+  referralFormController.getReferralFormDocs
+);
 
 // Route to delete Referral Form
-router.delete("/:id", referralFormController.deleteReferralForm);
+router.delete(
+  "/removeReferralForm/:id",
+  referralFormController.deleteReferralForm
+);
 
 module.exports = router;
