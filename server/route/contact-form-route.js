@@ -4,7 +4,7 @@ const router = express.Router();
 const contactFormController = require("../controller/contact-form-controller");
 
 router.post(
-  "/",
+  "/createContactForm",
   [
     check("name").not().isEmpty(),
     check("email").not().isEmpty(),
@@ -20,10 +20,10 @@ router.post(
   }
 );
 
-router.get("/", contactFormController.getContactForm);
+router.get("/getContactForm", contactFormController.getContactForm);
 
-router.get("/:id", contactFormController.getContactFormById);
+router.get("/getContactForm/:id", contactFormController.getContactFormById);
 
-router.delete("/:id", contactFormController.deleteContactForm);
+router.delete("/removeContactForm/:id", contactFormController.deleteContactForm);
 
 module.exports = router;

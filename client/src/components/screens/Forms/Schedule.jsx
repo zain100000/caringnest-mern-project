@@ -38,7 +38,7 @@ const Schedule = () => {
       };
 
       const ContactApiUrl =
-        "https://caring-nest-deployment-server.onrender.com/api/schedule";
+        "https://caring-nest-deployment-server.onrender.com/api/schedule/createScheduleForm";
       const response = await axios.post(ContactApiUrl, scheduleFormData, {
         headers: {
           "Content-Type": "application/json",

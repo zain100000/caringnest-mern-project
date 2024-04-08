@@ -35,7 +35,7 @@ const Contact = () => {
       };
 
       const ContactApiUrl =
-        "https://caring-nest-deployment-server.onrender.com/api/contact";
+        "https://caring-nest-deployment-server.onrender.com/api/contact/createContactForm";
       const response = await axios.post(ContactApiUrl, contactformData, {
         headers: {
           "Content-Type": "application/json",

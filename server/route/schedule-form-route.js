@@ -4,7 +4,7 @@ const router = express.Router();
 const scheduleFormController = require("../controller/schedule-form-controller");
 
 router.post(
-  "/",
+  "/createScheduleForm",
   [
     check("date"),
     check("time"),
@@ -21,10 +21,13 @@ router.post(
   }
 );
 
-router.get("/", scheduleFormController.getScheduleForm);
+router.get("/getScheduleForm", scheduleFormController.getScheduleForm);
 
-router.get("/:id", scheduleFormController.getScheduleFormById);
+router.get("/getScheduleForm/:id", scheduleFormController.getScheduleFormById);
 
-router.delete("/:id", scheduleFormController.deleteScheduleForm);
+router.delete(
+  "/removeScheduleForm/:id",
+  scheduleFormController.deleteScheduleForm
+);
 
 module.exports = router;
