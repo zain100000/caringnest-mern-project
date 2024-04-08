@@ -168,7 +168,10 @@ exports.deleteReferralForm = async (req, res, next) => {
     // Check if referral form.docs is defined
     if (referral.additionalDocs) {
       try {
-        const publicId = referral.additionalDocs.split("/caringnest/")[1];
+        const publicId = referral.additionalDocs
+          .split("/caringnest/additionalDocs/")[1]
+          .split(".")[0];
+        console.log("Extracted Public ID:", publicId); // Logging for verification
 
         // Delete the docs file from Cloudinary
         const deletionResult = await cloudinary.uploader.destroy(publicId);
