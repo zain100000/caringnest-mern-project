@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const scheduleFormSchema = new mongoose.Schema({
-  date: { type: Date },
-  time: { type: Date },
+  date: { type: String },
+  time: { type: String },
   fullname: { type: String },
   email: { type: String },
   mobile: { type: String },
